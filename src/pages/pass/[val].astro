@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export function getStaticPaths(){
+    return [
+        {params: {val: 'valux'}},
+        {params: {val: 'caio'}},
+    ]
+}
+const {val} = Astro.params
+---
+<Layout title="Params value">
+
+    <p>Valor passado na url: {val}</p>
+
+</Layout>
