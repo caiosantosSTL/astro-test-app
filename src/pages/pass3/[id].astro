@@ -1,0 +1,36 @@
+---
+
+/* 
+> pp.map(v => {return {id: v.id}})
+[ { id: 1 }, { id: 2 }, { id: 3 } ]
+> pp.map(v => {return {param:{id: v.id}}})
+[ { param: { id: 1 } }, { param: { id: 2 } }, { param: { id: 3 } } ]
+
+*/
+
+export async function getStaticPaths() {
+    const ax = [
+        { id: '1', val: 'AAAAAA' },
+        { id: '2', val: 'BBBBBB' },
+        { id: '3', val: 'CCCCCCC' },
+        { id: '4', val: 'DDDDDD' },
+        { id: '5', val: 'WWWWWW' },
+        { id: '6', val: 'SSSSSSS' },
+    ]
+    const pp = [...ax]
+    return pp.map(v => {
+        return {
+            params: { id: v.id }, // id é um alias de v.id 
+            props: { v } // esse nao tem alias
+            // * params e props sao chaves obrigator
+        }
+    })
+
+}
+
+const { id } = Astro.params
+const { v } = Astro.props
+---
+
+<h1>Valor id {id}</h1>
+<p>Valor {v.val}</p>

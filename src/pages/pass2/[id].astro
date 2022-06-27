@@ -1,0 +1,23 @@
+---
+export async function getStaticPaths() {
+  const postagens = [
+    {id: '1', categoria: "astro", titulo: "Referencia da API"},
+    {id: '2', categoria: "react", titulo: "Criando um contador com React!"},
+    {id: '3', categoria: "nix", titulo: "Criando um com React!"},
+    {id: '4', categoria: "zup", titulo: "As dosd!"}
+  ];
+  return postagens.map((postagem) => {
+    return {
+      params: { id: postagem.id },
+      props: { postagem }
+    };
+  });
+}
+const {id} = Astro.params;
+const {postagem} = Astro.props;
+---
+<body>
+  <h1>{id}: {postagem.titulo}</h1>
+  <h1>{id}: {postagem.id}</h1>
+  <h2>Categoria: {postagem.categoria}</h2>
+</body>

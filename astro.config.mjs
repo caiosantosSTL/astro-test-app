@@ -1,14 +1,14 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-    markdown:{
-        shikiConfig:{
-            theme: 'min-dark',
-            wrap: true,
+  markdown: {
+    shikiConfig: {
+      theme: 'min-dark',
+      wrap: true
 
-        },
+    },
 
-        syntaxHighlight: 'shiki'
-    }
-});
+    syntaxHighlight: 'prism'
+  }
+})
